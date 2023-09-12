@@ -51,4 +51,10 @@ def h1(s):
 def h3(s):
     # implement this function
     board, _, _ = s
-    return 0
+    heuristic = 0
+    for i in range(9):
+        if board[i] != goal[i]:
+            row = abs(i//3 - goal.index(board[i]) //3)
+            column = abs(i % 3 - goal.index(board[i]) % 3)
+            heuristic = heuristic + row + column
+    return heuristic        
